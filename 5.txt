@@ -1,0 +1,40 @@
+#include <iostream>
+#include <string> 
+#include <list>
+#include <Windows.h>
+using namespace std;
+
+list<int> arrayCopy(int* arrA, int lenA, int* arrB, int lenB) {
+
+
+    list<int> listbuf;
+
+    for (int i = 0; i < lenA; i++) {
+        if (arrA[i] == arrB[i]) {
+            listbuf.push_back(arrA[i]);
+        }
+    }
+
+    if (true) {
+        // перебор в цикле
+        for (int n : listbuf)
+            cout << n << "\n";
+    }
+
+    return listbuf;
+}
+
+int main(int argc, char* argv[]) {
+
+    //Для русского языка
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
+
+    int arrA[9] = {7, 17, 1, 9, 1, 17, 56, 56, 23};
+    int arrB[10] = {56, 17, 1, 23, 34, 23, 1, 8, 1};
+
+    arrayCopy(arrA, sizeof(arrA) / sizeof(arrA[0]),
+              arrB, sizeof(arrB) / sizeof(arrB[0]));
+
+    return 0;
+}
